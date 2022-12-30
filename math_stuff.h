@@ -41,8 +41,11 @@ unsigned int tobase10(unsigned int, unsigned int);
 // Converts any number in base > 10 to decimal
 unsigned int tobase10(std::string_view, unsigned int);
 
-// Finds all prime numbers up to a certain limit. Definitely not the most 
+// Finds all prime numbers up to a certain limit (l). Definitely not the most 
 // optimized implementation but it was fun to make ::D
 std::list<unsigned int> sieve_of_eratosthenes(unsigned int);
+
+// Finds all lucky numbers up to a certain limit (l). 
+std::list<unsigned int> lucky_numbers(unsigned int);
 
 }

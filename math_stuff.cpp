@@ -89,7 +89,46 @@ std::list<unsigned int> sieve_of_eratosthenes(unsigned int l) {
 			numbers.end()
 		);
 	}
-	
+
+	return numbers;
+}
+
+std::list<unsigned int> lucky_numbers(unsigned int l) {
+	std::list<unsigned int> numbers(l);
+	std::iota(numbers.begin(), numbers.end(), 1);
+
+	// get rid of all even numbers
+	numbers.erase(
+		std::remove_if(
+			numbers.begin(),
+			numbers.end(),
+			[] (unsigned int const& n) {
+				return n % 2 == 0;
+			}
+		),
+		numbers.end()
+	);
+
+	// remove every n-th number
+	for (auto it = numbers.begin(); it != numbers.end(); it++) {
+		unsigned int c = 0;
+		numbers.erase(
+			std::remove_if(
+				numbers.begin(), 
+				numbers.end(), 
+				[&it, &c] (unsigned int const& n) {
+					if (*it != 1 && c == *it - 1) {
+						c = 0;
+						return true;
+					}
+					c++;
+					return false;
+				}
+			), 
+			numbers.end()
+		);
+	}
+
 	return numbers;
 }
 
