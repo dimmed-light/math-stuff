@@ -73,4 +73,24 @@ unsigned int tobase10(std::string_view n, unsigned int b) {
 	return calculate_base_sum(digits, b);
 }
 
+std::list<unsigned int> sieve_of_eratosthenes(unsigned int l) {
+	std::list<unsigned int> numbers(l - 1);
+	std::iota(numbers.begin(), numbers.end(), 2);
+
+	for (auto it = numbers.begin(); it != numbers.end(); it++) {
+		numbers.erase(
+			std::remove_if(
+				std::next(it), 
+				numbers.end(), 
+				[&it] (unsigned int const& n) {
+					return n % *it == 0;
+				}
+			), 
+			numbers.end()
+		);
+	}
+	
+	return numbers;
+}
+
 }

@@ -1,10 +1,14 @@
 #pragma once
 
+#include <iostream>
+
 #include <vector>
+#include <list>
 #include <set>
 #include <cstdint>
 #include <cmath>
 #include <algorithm>
+#include <numeric>
 #include <string_view>
 
 // m(ath) st(uff)
@@ -36,5 +40,9 @@ unsigned int tobase10(unsigned int, unsigned int);
 
 // Converts any number in base > 10 to decimal
 unsigned int tobase10(std::string_view, unsigned int);
+
+// Finds all prime numbers up to a certain limit. Definitely not the most 
+// optimized implementation but it was fun to make ::D
+std::list<unsigned int> sieve_of_eratosthenes(unsigned int);
 
 }
