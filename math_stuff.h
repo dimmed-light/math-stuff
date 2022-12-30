@@ -31,6 +31,9 @@ bool is_happy(unsigned int, unsigned int = 10);
 // See first comment.
 bool is_armstrong(unsigned int, unsigned int = 10);
 
+// Used by tobase10()
+unsigned int calculate_base_sum(std::vector<uint8_t> const&, unsigned int);
+
 // Converts any number in base < 10 to decimal
 unsigned int tobase10(unsigned int, unsigned int);
 

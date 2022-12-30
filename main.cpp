@@ -53,7 +53,6 @@ int main() {
 	std::cout << "Is (347, 6) a happy number?: " << 
 		yes_or_no(mst::is_happy(347, 6));
 
-	std::cout << mst::tobase10("99A", 16) << '\n';
 
 	return 0;
 }

@@ -33,14 +33,10 @@ bool is_armstrong(unsigned int n, unsigned int b) {
 	return n == pdif(n, split_into_digits(n, b).size(), b);
 }
 
-unsigned int tobase10(unsigned int n, unsigned int b) {
-	if (b > 10) {
-		return 0;
-	} else if (b == 10) {
-		return n;
-	}
-
-	std::vector<uint8_t> digits = split_into_digits(n);
+unsigned int calculate_base_sum(
+	std::vector<uint8_t> const& digits, 
+	unsigned int b
+) {
 	unsigned int sum = 0; // number in base 10
 	unsigned int p = 0; // power to which each digit is raised
 	std::for_each(digits.begin(), digits.end(), 
@@ -52,9 +48,20 @@ unsigned int tobase10(unsigned int n, unsigned int b) {
 	return sum;
 }
 
+unsigned int tobase10(unsigned int n, unsigned int b) {
+	if (b > 10) {
+		return 0;
+	} else if (b == 10) {
+		return n;
+	}
+
+	std::vector<uint8_t> digits = split_into_digits(n);
+	return calculate_base_sum(digits, b);
+}
+
 unsigned int tobase10(std::string_view n, unsigned int b) {
 	std::vector<uint8_t> digits;
-	std::transform(n.begin(), n.end(), std::back_inserter(digits), 
+	std::transform(n.rbegin(), n.rend(), std::back_inserter(digits), 
 		[] (char const& c) {
 			if (c <= '9') {
 				return (uint8_t) c - '0';
@@ -63,16 +70,7 @@ unsigned int tobase10(std::string_view n, unsigned int b) {
 		}
 	);
 
-	unsigned int sum = 0;
-	unsigned int p = digits.size() - 1;
-	std::for_each(digits.begin(), digits.end(), 
-		[&sum, &p, &b] (uint8_t const& d) {
-			sum += d * std::pow(b, p);
-			p--;
-		}
-	);
-
-	return sum;
+	return calculate_base_sum(digits, b);
 }
 
 }
