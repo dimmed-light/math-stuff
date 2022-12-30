@@ -1,24 +1,21 @@
 #pragma once
 
-#include <iostream>
-
-#include <stack>
 #include <vector>
 #include <set>
 #include <cstdint>
 #include <cmath>
 #include <algorithm>
 #include <string_view>
-#include <iterator>
 
 // m(ath) st(uff)
 namespace mst {
 
-// First parameter: Accepts a number in octal, decimal or hexadecimal base
+// First parameter: Accepts a number in any C++-supported base (decimal, binary,
+//                  octal, hexadecimal)
 // Second parameter: The base you want to find the digits (default: 10).
-// Effectively, this can convert any octal, decimal or hexadecimal number to any
-// other base. However, passing any number that isn't in octal, decimal or 
-// hexadecimal will not work. This applies to all other functions too.
+// Effectively, this can convert any C++-supported base number to any
+// other base. However, passing any number that isn't in any C++-supported base
+// will not work. This applies to all other functions too.
 std::vector<uint8_t> split_into_digits(unsigned int, unsigned int = 10);
 
 // Perfect digital invariant function. See first comment.

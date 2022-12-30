@@ -12,18 +12,21 @@ int main() {
 	std::array<number_and_base, 10> numbers {{ 
 		{ 99, 10 }, 
 		{ 153 , 10 }, 
-		{ 370, 10 },
 		{ 1634, 10 },
 
 		// I give an octal number as input and I'm trying to find if this number
 		// is an armstrong number in base 8 (second argument)
 		{ 064, 8 }, 
 
+		// I give a binary number as input and I'm trying to find if this number
+		// is an armstrong number in base 10 (second argument)
+		{ 0b101110010, 10 },
+
 		// I give an decimal number as input and I'm trying to find if this 
 		// number is an armstrong number in base 5 (second argument)
 		{ 13, 5 },
 
-		// Same as the above, but I give the number in octal base
+		// Same as above, but I give the number in octal base
 		{ 015, 5 },
 
 		// Now, I give the same number in base 5 (or do I?) and I'm trying to 
