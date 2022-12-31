@@ -1,3 +1,4 @@
+// flags: -std=c++20
 #pragma once
 
 #include <iostream>
