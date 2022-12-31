@@ -172,6 +172,33 @@ bool is_harshad(unsigned int n, unsigned int b) {
 	return n % std::accumulate(digits.begin(), digits.end(), 0) == 0; 
 }
 
+bool is_perfect(unsigned int n) {
+	unsigned int sum = 0;
+	unsigned int d = 1;
+	while (d < n) {
+		if (n % d == 0) {
+			sum += d;
+		}
+		d++;
+	}
+	return sum == n;
+}
 
+unsigned int gcd(unsigned int a, unsigned int b) {
+	while (a != 0 && b != 0) {
+		if (a > b) {
+			a %= b;
+		} else if (b > a) {
+			b %= a; 
+		} else {
+			return a;
+		}
+	}
+
+	if (a) {
+		return a;
+	}
+	return b;
+}
 
 }

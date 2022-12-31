@@ -6,7 +6,7 @@
 
 #include "math_stuff.h"
 
-template<class Iterator>
+template<typename Iterator>
 void print(Iterator const&, Iterator const&);
 
 int main() {
@@ -26,7 +26,7 @@ int main() {
     return 0;
 }
 
-template<class Iterator>
+template<typename Iterator>
 void print(Iterator const& first, Iterator const& last) {
     std::cout << "[ ";
     std::for_each(first, last, [] (auto const& item) {

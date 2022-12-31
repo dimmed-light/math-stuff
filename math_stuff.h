@@ -60,4 +60,29 @@ bool is_prime(unsigned int);
 // Checks if a number is a harshad number in a given base
 bool is_harshad(unsigned int, unsigned int = 10);
 
+// Checks if a number is perfect
+bool is_perfect(unsigned int);
+
+// Greatest common divisor
+// Euclid's algorithm, non-recursive
+unsigned int gcd(unsigned int, unsigned int);
+
+// Gretest commond divisor, but it accepts more than 2 numbers
+template<class Iterator>
+typename 
+    std::enable_if_t<
+        std::is_same_v<
+            typename Iterator::value_type, 
+            unsigned int
+        >, 
+        unsigned int
+    >
+gcd(Iterator first, Iterator last) {
+    unsigned int result = *first;
+	for (Iterator it = std::next(first); it != last; it++) {
+        result = gcd(result, *it);
+    }
+    return result;
+}
+
 }
