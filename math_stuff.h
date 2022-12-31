@@ -48,4 +48,9 @@ std::list<unsigned int> sieve_of_eratosthenes(unsigned int);
 // Finds all lucky numbers up to a certain limit (l). 
 std::list<unsigned int> lucky_numbers(unsigned int);
 
+// Proceeds to find factors of a given number
+std::vector<unsigned int> trial_division(unsigned int);
+
+bool is_prime(unsigned int);
+
 }

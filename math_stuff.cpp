@@ -40,7 +40,7 @@ unsigned int calculate_base_sum(
 	unsigned int sum = 0; // number in base 10
 	unsigned int p = 0; // power to which each digit is raised
 	std::for_each(digits.begin(), digits.end(), 
-		[&sum, &p, &b] (uint8_t const& d) {
+		[&sum, &p, &b] (uint8_t d) {
 			sum += d * std::pow(b, p);
 			p++;
 		}
@@ -82,7 +82,7 @@ std::list<unsigned int> sieve_of_eratosthenes(unsigned int l) {
 			std::remove_if(
 				std::next(it), 
 				numbers.end(), 
-				[&it] (unsigned int const& n) {
+				[&it] (unsigned int n) {
 					return n % *it == 0;
 				}
 			), 
@@ -102,7 +102,7 @@ std::list<unsigned int> lucky_numbers(unsigned int l) {
 		std::remove_if(
 			numbers.begin(),
 			numbers.end(),
-			[] (unsigned int const& n) {
+			[] (unsigned int n) {
 				return n % 2 == 0;
 			}
 		),
@@ -116,7 +116,7 @@ std::list<unsigned int> lucky_numbers(unsigned int l) {
 			std::remove_if(
 				numbers.begin(), 
 				numbers.end(), 
-				[&it, &c] (unsigned int const& n) {
+				[&it, &c] (unsigned int n) {
 					if (*it != 1 && c == *it - 1) {
 						c = 0;
 						return true;
@@ -130,6 +130,24 @@ std::list<unsigned int> lucky_numbers(unsigned int l) {
 	}
 
 	return numbers;
+}
+
+std::vector<unsigned int> trial_division(unsigned int n) {
+	std::vector<unsigned int> factors;
+	unsigned int factor = 2;
+	while (n > 1) {
+		if (n % factor == 0) {
+			n /= factor;
+			factors.push_back(factor);
+		} else {
+			factor++;
+		}
+	}
+	return factors;
+}
+
+bool is_prime(unsigned int n) {
+	return trial_division(n).size() == 1;
 }
 
 }
