@@ -47,7 +47,6 @@ int main() {
 
 	std::for_each(numbers.begin(), numbers.end(), [](auto const& p){
 		auto const& [n, b] = p;
-		// make 10tobase()
 		std::cout << "Is (" << n << ", " << b << ") an armstrong number?: " << 
 			yes_or_no(mst::is_armstrong(n, b));
 	});

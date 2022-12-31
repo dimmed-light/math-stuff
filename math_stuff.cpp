@@ -62,7 +62,7 @@ unsigned int tobase10(unsigned int n, unsigned int b) {
 unsigned int tobase10(std::string_view n, unsigned int b) {
 	std::vector<uint8_t> digits;
 	std::transform(n.rbegin(), n.rend(), std::back_inserter(digits), 
-		[] (char const& c) {
+		[] (char c) {
 			if (c <= '9') {
 				return (uint8_t) c - '0';
 			}
@@ -71,6 +71,23 @@ unsigned int tobase10(std::string_view n, unsigned int b) {
 	);
 
 	return calculate_base_sum(digits, b);
+}
+
+std::string tobase(unsigned int n, unsigned int b) {
+	std::vector<uint8_t> digits = split_into_digits(n, b);
+	std::string number;
+	std::transform(
+		digits.rbegin(), 
+		digits.rend(), 
+		std::back_inserter(number), 
+		[] (uint8_t d) {
+			if (d <= 9) {
+				return (char) d + '0';
+			}
+			return (char) d + 'A' - 10;
+		}
+	);
+	return number;
 }
 
 std::list<unsigned int> sieve_of_eratosthenes(unsigned int l) {
