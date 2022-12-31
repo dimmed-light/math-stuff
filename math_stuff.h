@@ -10,6 +10,7 @@
 #include <algorithm>
 #include <numeric>
 #include <string_view>
+#include <string>
 
 // m(ath) st(uff)
 namespace mst {
@@ -19,7 +20,7 @@ namespace mst {
 // Second parameter: The base you want to find the digits (default: 10).
 // Effectively, this can convert any C++-supported base number to any
 // other base. However, passing any number that isn't in any C++-supported base
-// will not work. This applies to all other functions too.
+// will not work. This applies to other functions that use this function.
 std::vector<uint8_t> split_into_digits(unsigned int, unsigned int = 10);
 
 // Perfect digital invariant function. See first comment.
@@ -52,5 +53,8 @@ std::list<unsigned int> lucky_numbers(unsigned int);
 std::vector<unsigned int> trial_division(unsigned int);
 
 bool is_prime(unsigned int);
+
+// Checks if a number is a harshad number in a given base
+bool is_harshad(unsigned int, unsigned int = 10);
 
 }

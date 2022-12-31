@@ -150,4 +150,11 @@ bool is_prime(unsigned int n) {
 	return trial_division(n).size() == 1;
 }
 
+bool is_harshad(unsigned int n, unsigned int b) {
+	std::vector<uint8_t> digits = split_into_digits(n, b);
+	return n % std::accumulate(digits.begin(), digits.end(), 0) == 0; 
+}
+
+
+
 }
