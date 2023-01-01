@@ -201,4 +201,11 @@ unsigned int gcd(unsigned int a, unsigned int b) {
 	return b;
 }
 
+unsigned int count_primes(unsigned int a, unsigned int b) {
+	if (a == 1) {
+		return b / std::log(b);
+	}
+	return (b / std::log(b)) - (a / std::log(a));
+}
+
 }

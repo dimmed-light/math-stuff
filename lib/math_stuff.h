@@ -86,4 +86,7 @@ gcd(Iterator first, Iterator last) {
     return result;
 }
 
+// Approximates the number of primes in a given range (see Prime number theorem)
+unsigned int count_primes(unsigned int, unsigned int);
+
 }
