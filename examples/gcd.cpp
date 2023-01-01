@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "math_stuff.h"
+#include "../lib/math_stuff.h"
 
 int main() {
 

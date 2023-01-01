@@ -1,4 +1,4 @@
-#include "math_stuff.h"
+#include "../lib/math_stuff.h"
 
 namespace mst {
 

@@ -4,10 +4,16 @@
 #include <vector>
 #include <array>
 
-#include "math_stuff.h"
+#include "../lib/math_stuff.h"
 
 template<typename Iterator>
-void print(Iterator const&, Iterator const&);
+void print(Iterator const& first, Iterator const& last) {
+    std::cout << "[ ";
+    std::for_each(first, last, [] (auto const& item) {
+        std::cout << item << ' ';
+    });
+    std::cout << "]\n";
+}
 
 int main() {
     std::list<unsigned int> primes = mst::sieve_of_eratosthenes(200);
@@ -26,11 +32,3 @@ int main() {
     return 0;
 }
 
-template<typename Iterator>
-void print(Iterator const& first, Iterator const& last) {
-    std::cout << "[ ";
-    std::for_each(first, last, [] (auto const& item) {
-        std::cout << item << ' ';
-    });
-    std::cout << "]\n";
-}

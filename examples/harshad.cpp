@@ -1,7 +1,7 @@
 #include <iostream>
 #include <array>
 
-#include "math_stuff.h"
+#include "../lib/math_stuff.h"
 
 using number_and_base = std::pair<unsigned int, unsigned int>;
 

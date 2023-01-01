@@ -68,7 +68,7 @@ bool is_perfect(unsigned int);
 // Euclid's algorithm, non-recursive
 unsigned int gcd(unsigned int, unsigned int);
 
-// Greatest commond divisor, but it accepts more than 2 numbers
+// Greatest common divisor, but it accepts more than 2 numbers
 template<class Iterator>
 typename 
     std::enable_if_t<

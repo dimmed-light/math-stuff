@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "math_stuff.h"
+#include "../lib/math_stuff.h"
 
 char const* yes_or_no(bool);
 

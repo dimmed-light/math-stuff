@@ -1,7 +1,7 @@
 #include <iostream>
 #include <list>
 
-#include "math_stuff.h"
+#include "../lib/math_stuff.h"
 
 void print(std::list<unsigned int> const&);
 
