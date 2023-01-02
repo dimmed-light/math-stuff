@@ -176,9 +176,9 @@ public:
         auto primeIterator = primes.begin();
 
         for (auto& point : initialSpiral) {
-            auto& [ n, v ] = point;
+            auto& [ n, loc ] = point;
             if (n == *primeIterator) {
-                ulamSpiralLocations.push_back(v);
+                ulamSpiralLocations.push_back(std::move(loc));
                 primeIterator++;
             }
         }
